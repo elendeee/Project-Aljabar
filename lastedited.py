@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+import json
+from streamlit_lottie import st_lottie
 
 #function untuk all 
 
@@ -28,10 +31,16 @@ def tabelkriteria1():
     print("\nVektor Eigen: ")
     print(np.round(eigen_values1, 5))
     
-    return normalized_matrix1, eigen_values1
+    sum_columns = np.sum(normalized_matrix1, axis=0)
+    print("\nJumlah tiap kolom pada Matriks Normalisasi:")
+    print(np.round(sum_columns, 6))
+    
+    sum_columns_eigen = np.sum(eigen_values1, axis=0)
+    print(np.round(sum_columns, 6))
+    return normalized_matrix1, eigen_values1, sum_columns, sum_columns_eigen
 
 # Memanggil fungsi tabelkriteria
-result_normalized_matrix, result_eigen_values = tabelkriteria1()
+result_normalized_matrix, result_eigen_values, result_sum, result_sum_eigen1 = tabelkriteria1()
 
 def nilaicr():
     # Data diambil dari tabel parameter (data 1)
@@ -91,10 +100,16 @@ def tabelkriteria2():
     print("\nVektor Eigen: ")
     print(np.round(eigen_values2, 5))
     
-    return normalized_matrix2, eigen_values2
+    sum_columns2 = np.sum(normalized_matrix2, axis=0)
+    print("\nJumlah tiap kolom pada Matriks Normalisasi:")
+    print(np.round(sum_columns2, 6))
+    
+    sum_columns_eigen2 = np.sum(eigen_values2, axis=0)
+    print(np.round(sum_columns2, 6))
+    return normalized_matrix2, eigen_values2, sum_columns2, sum_columns_eigen2
 
 # Memanggil fungsi tabelkriteria
-result_normalized_matrix2, result_eigen_values2 = tabelkriteria2()
+result_normalized_matrix2, result_eigen_values2, result_sum2, result_sum_eigen2 = tabelkriteria2()
 
 def nilaicr2():
     # Data diambil dari tabel parameter (data 2)
@@ -154,10 +169,16 @@ def tabelkriteria3():
     print("\nVektor Eigen: ")
     print(np.round(eigen_values3, 5))
     
-    return normalized_matrix3, eigen_values3
+    sum_columns3 = np.sum(normalized_matrix3, axis=0)
+    print("\nJumlah tiap kolom pada Matriks Normalisasi:")
+    print(np.round(sum_columns3, 6))
+    
+    sum_columns_eigen3 = np.sum(eigen_values3, axis=0)
+    print(np.round(sum_columns3, 6))
+    return normalized_matrix3, eigen_values3, sum_columns3, sum_columns_eigen3
 
 # Memanggil fungsi tabelkriteria
-result_normalized_matrix3, result_eigen_values3 = tabelkriteria3()
+result_normalized_matrix3, result_eigen_values3, result_sum3, result_sum_eigen3 = tabelkriteria3()
 
 def nilaicr3():
     # Data diambil dari tabel parameter (data 3)
@@ -217,10 +238,17 @@ def tabelkriteria4():
     print("\nVektor Eigen: ")
     print(np.round(eigen_values4, 5))
     
-    return normalized_matrix4, eigen_values4
+    sum_columns4 = np.sum(normalized_matrix4, axis=0)
+    print("\nJumlah tiap kolom pada Matriks Normalisasi:")
+    print(np.round(sum_columns4, 6))
+    
+    sum_columns_eigen4 = np.sum(eigen_values4, axis=0)
+    print(np.round(sum_columns4, 6))
+    return normalized_matrix4, eigen_values4, sum_columns4, sum_columns_eigen4
+
 
 # Memanggil fungsi tabelkriteria
-result_normalized_matrix4, result_eigen_values4 = tabelkriteria4()
+result_normalized_matrix4, result_eigen_values4, result_sum4, result_sum_eigen4 = tabelkriteria4()
 
 def nilaicr4():
     # Data diambil dari tabel parameter (data 4)
@@ -280,10 +308,17 @@ def tabelkriteria5():
     print("\nVektor Eigen: ")
     print(np.round(eigen_values5, 5))
     
-    return normalized_matrix5, eigen_values5
+    sum_columns5 = np.sum(normalized_matrix5, axis=0)
+    print("\nJumlah tiap kolom pada Matriks Normalisasi:")
+    print(np.round(sum_columns5, 6))
+    
+    sum_columns_eigen5 = np.sum(eigen_values5, axis=0)
+    print(np.round(sum_columns5, 6))
+    return normalized_matrix5, eigen_values5, sum_columns5, sum_columns_eigen5
+
 
 # Memanggil fungsi tabelkriteria
-result_normalized_matrix5, result_eigen_values5 = tabelkriteria5()
+result_normalized_matrix5, result_eigen_values5, result_sum5, result_sum_eigen5 = tabelkriteria5()
 
 def nilaicr5():
     # Data diambil dari tabel parameter (data 5)
@@ -343,10 +378,16 @@ def tabelkriteria6():
     print("\nVektor Eigen: ")
     print(np.round(eigen_values6, 5))
     
-    return normalized_matrix6, eigen_values6
+    sum_columns6 = np.sum(normalized_matrix6, axis=0)
+    print("\nJumlah tiap kolom pada Matriks Normalisasi:")
+    print(np.round(sum_columns6, 6))
+    
+    sum_columns_eigen6 = np.sum(eigen_values6, axis=0)
+    print(np.round(sum_columns6, 6))
+    return normalized_matrix6, eigen_values6, sum_columns6, sum_columns_eigen6
 
 # Memanggil fungsi tabelkriteria
-result_normalized_matrix6, result_eigen_values6 = tabelkriteria6()
+result_normalized_matrix6, result_eigen_values6, result_sum6, result_sum_eigen6 = tabelkriteria6()
 
 def nilaicr6():
     # Data diambil dari tabel parameter (data 6)
@@ -400,15 +441,22 @@ def tabelkriteria7():
     print("\nMatriks Normalisasi:")
     print(np.round(normalized_matrix7, 6))
     
-    num_parameters = 7  # Jumlah parameter
+    num_parameters = 6  # Jumlah parameter
     eigen_values7 = np.sum(normalized_matrix7, axis=1) / num_parameters
     print("\nVektor Eigen: ")
     print(np.round(eigen_values7, 5))
     
-    return normalized_matrix7, eigen_values7
+    sum_columns7 = np.sum(normalized_matrix7, axis=0)
+    print("\nJumlah tiap kolom pada Matriks Normalisasi:")
+    print(np.round(sum_columns7, 6))
+    
+    sum_columns_eigen7 = np.sum(eigen_values7, axis=0)
+    print(np.round(sum_columns7, 6))
+    return normalized_matrix7, eigen_values7, sum_columns7, sum_columns_eigen7
 
 # Memanggil fungsi tabelkriteria
-result_normalized_matrix7, result_eigen_values7 = tabelkriteria7()
+result_normalized_matrix7, result_eigen_values7, result_sum7, result_sum_eigen7 = tabelkriteria7()
+
 
 def nilaicr7():
     # Data diambil dari tabel parameter (data 7)
@@ -464,6 +512,11 @@ option = st.sidebar.selectbox(
 )
 
 if option == 'Home' or option == '':
+    with open("Animation - 1700811928398.json") as source:
+        animation=json.load(source)
+
+    st_lottie(animation)
+    
     st.write("""# Implementasi Nilai dan Vektor Eigen untuk Menentukan Prioritas Faktor-Faktor Pembelian Barang dan Pemilihan E-Commerce""")  # menampilkan halaman utama
     st.write("""
     Web ini digunakan untuk melakukan perhitungan model keputusan dari faktor-faktor pembelian barang dan pemilihan e-commerce dengan menggunakan konsep matriks dan vektor eigen, dimana faktor-faktor ini bisa dihitung dengan menggunakan data dummy yang telah dibuat
@@ -570,7 +623,7 @@ elif option == 'Dataframe':
     
     elif selected_column == 'Kriteria Skala Toko Dibandingkan dengan Alternatif E-Commerce':   
         table7 = pd.DataFrame({
-            'Keaslian produk': ['Shopee', 'Tokopedia', 'Lazada', 'Bukalapak', 'Blibli', 'Orami'],
+            'Skala Toko': ['Shopee', 'Tokopedia', 'Lazada', 'Bukalapak', 'Blibli', 'Orami'],
             'Shopee': [1,  '1/2',  '1/2',  '1/2', '1/2', '1/2'],
             'Tokopedia': [2, 1,  '1/2', '1/2', 1,  1],
             'Lazada': [2,  2,  1,  '1/2',  1, 1 ],
@@ -589,11 +642,15 @@ elif option == 'Dataframe':
         elif selected_column == 'Kriteria Faktor Pembelian':
             st.subheader('Hasil Normalisasi Data: ')
             st.table(pd.DataFrame(result_normalized_matrix, columns=['Harga', 'Gratis Ongkir', 'Review dan Rating', 'Jumlah Produk Terjual', 'Keaslian Produk', 'Skala Toko']))
-
+            st.subheader('Hasil Penjumlahan Per Kolom Pada Tabel Normalisasi Data: ')
+            st.table(pd.DataFrame(result_sum, columns=['Harga', 'Gratis Ongkir', 'Review dan Rating', 'Jumlah Produk Terjual', 'Keaslian Produk',	'Skala Toko']))
+           
             # Menampilkan vektor eigen dalam bentuk tabel menggunakan Streamlit
             st.subheader('Vektor Eigen:')
             st.table(pd.DataFrame(result_eigen_values, columns=['Nilai Vektor Eigen']))
-            
+            st.subheader('Hasil Penjumlahan Vektor Eigen: ')
+            st.table(pd.DataFrame(result_sum_eigen1, columns=['Hasil']))
+          
             st.subheader('Hasil Perkalian Matriks Normalisasi dengan Nilai Vektor Eigen:')
             st.table(pd.DataFrame(result_hasil1, columns=['1', '2', '3', '4', '5', '6']))
             
@@ -616,12 +673,16 @@ elif option == 'Dataframe':
             st.write(result_consistency)
             
         elif selected_column == 'Kriteria Harga Dibandingkan dengan Alternatif E-Commerce':
-            st.subheader('Hasil Normalisasi Data:')
-            st.table(pd.DataFrame(result_normalized_matrix2, columns=['Shopee', 'Tokopedia', 'Lazada', 'Bukalapak', 'Blibli', 'Orami']))
-
+            st.subheader('Hasil Normalisasi Data: ')
+            st.table(pd.DataFrame(result_normalized_matrix2, columns=['Harga', 'Gratis Ongkir', 'Review dan Rating', 'Jumlah Produk Terjual', 'Keaslian Produk', 'Skala Toko']))
+            st.subheader('Hasil Penjumlahan Per Kolom Pada Tabel Normalisasi Data: ')
+            st.table(pd.DataFrame(result_sum2, columns=['Harga', 'Gratis Ongkir', 'Review dan Rating', 'Jumlah Produk Terjual', 'Keaslian Produk',	'Skala Toko']))
+           
             # Menampilkan vektor eigen dalam bentuk tabel menggunakan Streamlit
             st.subheader('Vektor Eigen:')
             st.table(pd.DataFrame(result_eigen_values2, columns=['Nilai Vektor Eigen']))
+            st.subheader('Hasil Penjumlahan Vektor Eigen: ')
+            st.table(pd.DataFrame(result_sum_eigen2, columns=['Hasil']))
             
             st.subheader('Hasil Perkalian Matriks Normalisasi dengan Nilai Vektor Eigen:')
             st.table(pd.DataFrame(result_hasil2, columns=['1', '2', '3', '4', '5', '6']))
@@ -645,12 +706,16 @@ elif option == 'Dataframe':
             st.write(result_consistency2)
             
         elif selected_column == 'Kriteria Gratis Ongkir Dibandingkan dengan Alternatif E-Commerce':
-            st.subheader('Hasil Normalisasi Data:')
-            st.table(pd.DataFrame(result_normalized_matrix3, columns=['Shopee', 'Tokopedia', 'Lazada', 'Bukalapak', 'Blibli', 'Orami']))
-
+            st.subheader('Hasil Normalisasi Data: ')
+            st.table(pd.DataFrame(result_normalized_matrix3, columns=['Harga', 'Gratis Ongkir', 'Review dan Rating', 'Jumlah Produk Terjual', 'Keaslian Produk', 'Skala Toko']))
+            st.subheader('Hasil Penjumlahan Per Kolom Pada Tabel Normalisasi Data: ')
+            st.table(pd.DataFrame(result_sum3, columns=['Harga', 'Gratis Ongkir', 'Review dan Rating', 'Jumlah Produk Terjual', 'Keaslian Produk',	'Skala Toko']))
+           
             # Menampilkan vektor eigen dalam bentuk tabel menggunakan Streamlit
             st.subheader('Vektor Eigen:')
             st.table(pd.DataFrame(result_eigen_values3, columns=['Nilai Vektor Eigen']))
+            st.subheader('Hasil Penjumlahan Vektor Eigen: ')
+            st.table(pd.DataFrame(result_sum_eigen3, columns=['Hasil']))
             
             st.subheader('Hasil Perkalian Matriks Normalisasi dengan Nilai Vektor Eigen:')
             st.table(pd.DataFrame(result_hasil3, columns=['1', '2', '3', '4', '5', '6']))
@@ -676,10 +741,14 @@ elif option == 'Dataframe':
         elif selected_column == 'Kriteria Review & Rating Dibandingkan dengan Alternatif E-Commerce':
             st.subheader('Hasil Normalisasi Data:')
             st.table(pd.DataFrame(result_normalized_matrix4, columns=['Shopee', 'Tokopedia', 'Lazada', 'Bukalapak', 'Blibli', 'Orami']))
-
+            st.subheader('Hasil Penjumlahan Per Kolom Pada Tabel Normalisasi Data: ')
+            st.table(pd.DataFrame(result_sum4, columns=['Harga', 'Gratis Ongkir', 'Review dan Rating', 'Jumlah Produk Terjual', 'Keaslian Produk',	'Skala Toko']))
+           
             # Menampilkan vektor eigen dalam bentuk tabel menggunakan Streamlit
             st.subheader('Vektor Eigen:')
             st.table(pd.DataFrame(result_eigen_values4, columns=['Nilai Vektor Eigen']))
+            st.subheader('Hasil Penjumlahan Vektor Eigen: ')
+            st.table(pd.DataFrame(result_sum_eigen4, columns=['Hasil']))
             
             st.subheader('Hasil Perkalian Matriks Normalisasi dengan Nilai Vektor Eigen:')
             st.table(pd.DataFrame(result_hasil4, columns=['1', '2', '3', '4', '5', '6']))
@@ -705,10 +774,14 @@ elif option == 'Dataframe':
         elif selected_column == 'Kriteria Jumlah Produk Terjual Dibandingkan dengan Alternatif E-Commerce':
              st.subheader('Hasil Normalisasi Data:')
              st.table(pd.DataFrame(result_normalized_matrix5, columns=['Shopee', 'Tokopedia', 'Lazada', 'Bukalapak', 'Blibli', 'Orami']))
-
+             st.subheader('Hasil Penjumlahan Per Kolom Pada Tabel Normalisasi Data: ')
+             st.table(pd.DataFrame(result_sum5, columns=['Harga', 'Gratis Ongkir', 'Review dan Rating', 'Jumlah Produk Terjual', 'Keaslian Produk',	'Skala Toko']))
+           
             # Menampilkan vektor eigen dalam bentuk tabel menggunakan Streamlit
              st.subheader('Vektor Eigen:')
              st.table(pd.DataFrame(result_eigen_values5, columns=['Nilai Vektor Eigen']))
+             st.subheader('Hasil Penjumlahan Vektor Eigen: ')
+             st.table(pd.DataFrame(result_sum_eigen5, columns=['Hasil']))
             
              st.subheader('Hasil Perkalian Matriks Normalisasi dengan Nilai Vektor Eigen:')
              st.table(pd.DataFrame(result_hasil5, columns=['1', '2', '3', '4', '5', '6']))
@@ -734,10 +807,14 @@ elif option == 'Dataframe':
         elif selected_column == 'Kriteria Keaslian Produk Dibandingkan dengan Alternatif E-Commerce':
              st.subheader('Hasil Normalisasi Data:')
              st.table(pd.DataFrame(result_normalized_matrix6, columns=['Shopee', 'Tokopedia', 'Lazada', 'Bukalapak', 'Blibli', 'Orami']))
-
+             st.subheader('Hasil Penjumlahan Per Kolom Pada Tabel Normalisasi Data: ')
+             st.table(pd.DataFrame(result_sum6, columns=['Harga', 'Gratis Ongkir', 'Review dan Rating', 'Jumlah Produk Terjual', 'Keaslian Produk',	'Skala Toko']))
+           
             # Menampilkan vektor eigen dalam bentuk tabel menggunakan Streamlit
              st.subheader('Vektor Eigen:')
              st.table(pd.DataFrame(result_eigen_values6, columns=['Nilai Vektor Eigen']))
+             st.subheader('Hasil Penjumlahan Vektor Eigen: ')
+             st.table(pd.DataFrame(result_sum_eigen6, columns=['Hasil']))
             
              st.subheader('Hasil Perkalian Matriks Normalisasi dengan Nilai Vektor Eigen:')
              st.table(pd.DataFrame(result_hasil6, columns=['1', '2', '3', '4', '5', '6']))
@@ -764,10 +841,14 @@ elif option == 'Dataframe':
         elif selected_column == 'Kriteria Skala Toko Dibandingkan dengan Alternatif E-Commerce':
              st.subheader('Hasil Normalisasi Data:')
              st.table(pd.DataFrame(result_normalized_matrix7, columns=['Shopee', 'Tokopedia', 'Lazada', 'Bukalapak', 'Blibli', 'Orami']))
-
+             st.subheader('Hasil Penjumlahan Per Kolom Pada Tabel Normalisasi Data: ')
+             st.table(pd.DataFrame(result_sum7, columns=['Harga', 'Gratis Ongkir', 'Review dan Rating', 'Jumlah Produk Terjual', 'Keaslian Produk',	'Skala Toko']))
+           
             # Menampilkan vektor eigen dalam bentuk tabel menggunakan Streamlit
              st.subheader('Vektor Eigen:')
              st.table(pd.DataFrame(result_eigen_values7, columns=['Nilai Vektor Eigen']))
+             st.subheader('Hasil Penjumlahan Vektor Eigen: ')
+             st.table(pd.DataFrame(result_sum_eigen7, columns=['Hasil']))
             
              st.subheader('Hasil Perkalian Matriks dengan Nilai Vektor Eigen:')
              st.table(pd.DataFrame(result_hasil7, columns=['1', '2', '3', '4', '5', '6']))
@@ -793,20 +874,78 @@ elif option == 'Dataframe':
 
             
 elif option == 'Chart':
-    st.write("""## Draw Charts""")  # menampilkan judul halaman
+    st.write("""## Diagram Pie Kriteria dan Alternatif""")  # menampilkan judul halaman
 
-    # Membuat variabel chart data yang berisi data dari dataframe
+    # Data untuk Kriteria
+    data_kriteria = {'Kategori': ['Gratis Ongkir', 'Review Rating', 'Jumlah Produk Terjual', 'Keaslian Produk', 'Skala Toko'],
+                     'Nilai': [0.205, 0.203, 0.123, 0.069, 0.050]}
+
+    df_kriteria = pd.DataFrame(data_kriteria)
+
+    # Data untuk Harga
+    data_harga = {'Kategori': ['Shopee', 'Tokopedia', 'Lazada', 'Bukalapak', 'Blibli', 'Orami'],
+                  'Nilai': [0.226, 0.161, 0.204, 0.133, 0.132, 0.144]}
     
-    # Data berupa angka acak yang di-generate menggunakan numpy
+    df_harga = pd.DataFrame(data_harga)
+
+    # Data untuk Gratis Ongkir
+    data_gratisongkir = {'Kategori': ['Shopee', 'Tokopedia', 'Lazada', 'Bukalapak', 'Blibli', 'Orami'],
+                         'Nilai': [0.226, 0.208, 0.181, 0.141, 0.158, 0.086]}
     
-    # Data terdiri dari 2 kolom dan 20 baris
-    chart_data = pd.DataFrame(
-        np.random.randn(20, 2),
-        columns=['a', 'b']
-    )
+    df_gratisongkir = pd.DataFrame(data_gratisongkir)
+    
+    # Data untuk Review dan Rating
+    data_rera = {'Kategori': ['Shopee', 'Tokopedia', 'Lazada', 'Bukalapak', 'Blibli', 'Orami'],
+                  'Nilai': [0.202, 0.208, 0.183, 0.128, 0.146, 0.133]}
+    
+    df_rera = pd.DataFrame(data_rera)
+    
+    # Data untuk Jumlah Produk Terjual
+    data_terjual = {'Kategori': ['Shopee', 'Tokopedia', 'Lazada', 'Bukalapak', 'Blibli', 'Orami'],
+                  'Nilai': [0.227, 0.188, 0.184, 0.124, 0.145, 0.132]}
+    
+    df_terjual = pd.DataFrame(data_terjual)
+    
+    # Data untuk Keaslian Produk
+    data_keaslian = {'Kategori': ['Shopee', 'Tokopedia', 'Lazada', 'Bukalapak', 'Blibli', 'Orami'],
+                  'Nilai': [0.227, 0.163, 0.166, 0.148, 0.151, 0.145]}
+    
+    df_keaslian = pd.DataFrame(data_keaslian)
+    
+    # Data untuk Skala Toko
+    data_skala = {'Kategori': ['Shopee', 'Tokopedia', 'Lazada', 'Bukalapak', 'Blibli', 'Orami'],
+                  'Nilai': [0.280, 0.181, 0.144, 0.115, 0.140, 0.140]}
+    
+    df_skala = pd.DataFrame(data_skala)
 
-    # Menampilkan data dalam bentuk chart
-    st.line_chart(chart_data)
 
-    # Menampilkan data dalam bentuk tabel
-    st.dataframe(chart_data)
+    # Fungsi untuk membuat diagram pie
+    def create_pie_chart(dataframe, column_name, title):
+        labels = dataframe[column_name]
+        values = dataframe['Nilai']
+        fig, ax = plt.subplots()
+        ax.pie(values, labels=labels, autopct='%1.1f%%', startangle=90)
+        ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+        ax.set_title(title)
+        return fig
+
+    # Tampilkan diagram pie untuk Kriteria
+    st.pyplot(create_pie_chart(df_kriteria, 'Kategori', 'Diagram Pie Kriteria'))
+
+    # Tampilkan diagram pie untuk Harga
+    st.pyplot(create_pie_chart(df_harga, 'Kategori', 'Diagram Pie Harga'))
+
+    # Tampilkan diagram pie untuk Gratis Ongkir
+    st.pyplot(create_pie_chart(df_gratisongkir, 'Kategori', 'Diagram Pie Gratis Ongkir'))
+
+    # Tampilkan diagram pie untuk Review dan Rating
+    st.pyplot(create_pie_chart(df_rera, 'Kategori', 'Diagram Pie Review dan Rating'))
+
+    # Tampilkan diagram pie untuk Produk Terjual
+    st.pyplot(create_pie_chart(df_terjual, 'Kategori', 'Diagram Pie Produk Terjual'))
+
+    # Tampilkan diagram pie untuk Keaslian Produk
+    st.pyplot(create_pie_chart(df_keaslian, 'Kategori', 'Diagram Pie Keaslian Produk'))
+
+    # Tampilkan diagram pie untuk Skala Toko
+    st.pyplot(create_pie_chart(df_skala, 'Kategori', 'Diagram Pie Skala Toko'))
